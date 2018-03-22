@@ -1,0 +1,131 @@
+var selectedOptions = ['All', 'Cars', 'Trucks', 'Convertibles'];
+var tableHeader = ['Year', 'Model', 'Buy', 'Price'];
+var tableData = [
+  {
+    title: 'Cars',
+    value: [
+      { year: "2013", model: "A", price: 32000 },
+      { year: "2011", model: "B", price: 4400 },
+      { year: "2016", model: "B", price: 15500 }
+    ]
+  },
+  {
+    title: 'Trucks',
+    value: [
+      { year: "2014", model: "D", price: 18000 },
+      { year: "2013", model: "E", price: 5200 }
+    ]
+  },
+  {
+    title: 'Convertibles',
+    value: [
+      { year: "2009", model: "F", price: 2000 },
+      { year: "2010", model: "G", price: 6000 },
+      { year: "2012", model: "H", price: 12500 },
+      { year: "2017", model: "M", price: 50000 }
+    ]
+  }
+];
+
+ReactDOM.render(
+  <TransportationMaster/>,
+  document.getElementById("root")
+)
+
+function TransportationMaster(props){
+  return(
+    <div>
+      <TransportationTitle title ="Welcome to React Transportation"/> 
+      <p>The best place to buy vehicles online</p>
+      <TransportationTitle title ="Choose Options"/>
+      <CheckBoxComponent id = "coding" label = "New Only " name = "interest" value = "coding" checked = "true"/>
+      <p/>
+      <SelectionOption id = "selecttype" title = "Select Type " selectionItems = {selectedOptions}/>
+      <TableMaster transportData = {tableData}/>
+    </div>
+  )
+}
+
+function TableMaster(props){
+  var data = [];
+  data.push(props.transportData.map(object =>{
+    return(
+      <div>
+        <TransportationTitle title = {object.title}/>
+        {object.value.map(objectValue => {
+          return(<Table tableItem = {objectValue}/>)
+        })}
+      </div>
+    )
+  }))
+  
+  return(
+    <div>{data}</div>
+  )
+}
+
+function Table(props){
+  return(
+    <ul><TableItem item = {props.tableItem}/></ul>
+  )
+}
+
+function TableItem(props){
+  return(
+    <table>
+      <TableHeader/>
+      <TableBody value = {props.item}/>
+    </table>
+  )
+}
+
+function TableBody(props){
+  return(
+    <tr>
+      <td>{props.value.year}</td>
+      <td>{props.value.model}</td>
+      <td>${props.value.price}</td>
+      <td><button>Buy Now</button></td>
+    </tr>
+  )
+}
+
+function TableHeader(){
+  var header =[];
+  for (var i= 0; i<tableHeader.length; i++){
+    header.push(<th>{tableHeader[i]}</th>)
+  }
+  return(
+    <tr>{header}</tr>
+  )
+}
+
+function TransportationTitle(props){
+  return (
+    <div>
+      <h2>{props.title}</h2>
+    </div>
+  ) 
+}
+
+function CheckBoxComponent(props){
+  return(
+    <div>
+      <label for = {props.id}>{props.label}</label>
+      <input type="checkbox" id={props.id} name={props.name} value={props.value} defaultChecked = {props.checked}/>
+    </div>
+  )
+}
+
+function SelectionOption(props){
+  return(
+    <div>
+      <label for = {props.id}> {props.title}</label>
+      <select id ="option">
+        {props.selectionItems.map(choice =>
+             <option value={choice}>{choice}</option>
+         )}
+      </select>
+    </div>
+  )
+}

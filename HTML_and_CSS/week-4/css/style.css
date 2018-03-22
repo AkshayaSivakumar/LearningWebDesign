@@ -1,0 +1,121 @@
+header{
+  padding:20px;
+  background-size:100%;
+  background: #ffffff url("http://intro-webdesign.com/CSS/assignment-2/images/flywheel.jpg") no-repeat;
+}
+
+body{
+  margin:1%;
+  padding:10px;
+}
+
+h1{
+  text-transform:uppercase;
+  color:#FFFFFF;
+  text-align:center;
+}
+
+h2{
+  text-transform:uppercase;
+  color:#926239;
+}
+
+nav a{
+  display: inline-block;
+  margin:2%;
+  width:125px;
+  height:20px;
+  text-decoration:none;
+  padding:2%;
+  
+  -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+  
+  color: #000000;
+  text-align: center;
+  vertical-align: middle;
+  background:#DAEAD5;
+  opacity: 0.6;
+}
+
+.active{
+  background-color:#FFFFFF;
+  font-weight:bold;
+  opacity:1;
+}
+
+.left {
+	background-color: #279356;
+	width: 24%;
+	float:left;
+}
+
+.right {
+	width:74%;
+	display: inline-block;
+	padding-left: 2%;
+}
+
+.left img {
+	border: groove 4px #000000;
+  display: block;
+  height: 20%;
+	width: 80%;
+	margin:20px;
+}
+
+table.team{
+  border: 2px solid #ffffff;
+  border-spacing: 3px;
+  width:80%;
+  margin-left:auto; 
+  margin-right:auto;
+  line-height:90%;
+}
+
+th,td{
+  font-weight:bold;
+}
+
+td{
+  font-family: Georgia,"Times New Roman", Serif;
+  font-size: 12px;
+  padding: 15px;
+  text-shadow: 2px 2px #ffffff;
+  -webkit-border-radius: 2px 2px 2px 2px;
+	border-radius: 2px 2px 2px 2px;
+}
+
+tr{
+  opacity:0.8;
+	background: #c1f0c1;
+}
+
+tr:hover{
+  opacity:1;
+}
+
+th{
+  color: #ffffff;
+  font-size:16px;
+  font-family: Serif, Georgia,"Times New Roman";
+  padding:20px;
+  border-bottom: 3px solid #00b200;
+  -webkit-border-radius: 0 0 5px 5px;
+	border-radius: 5px 5px 0 0;
+  background: #004c00; 
+  background: -webkit-linear-gradient(#004c00, #7fff7f);
+  background: -o-linear-gradient(#004c00, #7fff7f); 
+  background: -moz-linear-gradient(#004c00, #7fff7f); 
+  background: linear-gradient(#004c00, #7fff7f); 
+}
+
+table.team td:nth-child(2), table.team td:nth-child(3){
+  text-align: center;
+}
+
+table.team th:nth-child(1){
+  text-align: left;
+}
